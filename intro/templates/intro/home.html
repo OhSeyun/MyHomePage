@@ -1,0 +1,60 @@
+{% extends 'intro/base.html' %}
+
+{% block title %}홈{% endblock %}
+
+{% block content %}
+<h2>안녕하세요! 오세윤입니다.</h2>
+<p>경희사이버대학교 전자정보공학과 3학년이에요.</p>
+<p>방문해 주셔서 정말 감사드립니다.</p>
+
+<hr>
+
+<nav class="tab-menu">
+  <button onclick="showTab('intro')">자기소개</button>
+  <button onclick="showTab('interest')">관심사</button>
+  <button onclick="showTab('skill')">특기</button>
+  <button onclick="showTab('hobby')">취미</button>
+  <button onclick="showTab('message')">하고싶은말</button>
+</nav>
+
+<div class="tab-content">
+  <section id="intro" class="tab section-box active">
+    <table class="info-table">
+      <tr><th>이름</th><td>오세윤 (OH SEYUN)</td></tr>
+      <tr><th>출생연월</th><td>1992년 2월</td></tr>
+      <tr><th>거주지</th><td>경기도 화성시</td></tr>
+      <tr><th>직업</th><td>회사원 / 품질관리담당</td></tr>
+    </table>
+  </section>
+
+  <section id="interest" class="tab section-box">
+    <p>AI, 반도체, 의료기기, 소프트웨어 공학에 관심이 많습니다.</p>
+  </section>
+
+  <section id="skill" class="tab section-box">
+    <p>문제 해결 능력, 전략적 사고, 정리력, 프론트엔드 구현 능력</p>
+  </section>
+
+  <section id="hobby" class="tab section-box">
+    <p>산책, 음악감상, 유튜브 시청, 사진촬영</p>
+  </section>
+
+  <section id="message" class="tab section-box">
+    <p>찾아와 주셔서 감사합니다. 오늘도 좋은 하루 보내세요! 😎</p>
+  </section>
+</div>
+
+<script>
+function showTab(id) {
+  const buttons = document.querySelectorAll('.tab-menu button');
+  buttons.forEach(btn => btn.classList.remove('active'));
+  const activeBtn = Array.from(buttons).find(btn => btn.getAttribute('onclick').includes(id));
+  if (activeBtn) activeBtn.classList.add('active');
+
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(tab => tab.classList.remove('active'));
+  const target = document.getElementById(id);
+  if (target) target.classList.add('active');
+}
+</script>
+{% endblock %}
